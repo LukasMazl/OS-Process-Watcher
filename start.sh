@@ -11,10 +11,6 @@ fi
 
 cd "./$DIR/"
 
-#chmod 777 ./mvnw
-echo `pwd`
-chmod +x "$MVNW_FILE"
-
 if [ -d "target" ]; then
 	echo "Target already exists"
 else

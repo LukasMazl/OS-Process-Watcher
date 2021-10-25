@@ -7,7 +7,7 @@ public final class ProcessResolverFactory {
     static {
         if (isWindows()) {
             PROCESS_RESOLVER_INSTANCE = new Window32ProcessResolver();
-        } else if (isUnix() || isMacOsX()) {
+        } else if (isUnix() || isMacOsX() || isLinux()) {
             PROCESS_RESOLVER_INSTANCE = new UnixProcessResolver();
         } else {
             throw new IllegalArgumentException("Illegal OS");
@@ -28,6 +28,10 @@ public final class ProcessResolverFactory {
 
     public static boolean isUnix() {
         return getOsName().startsWith("Unix");
+    }
+
+    private static boolean isLinux() {
+        return getOsName().startsWith("Linux");
     }
 
     private static boolean isMacOsX() {

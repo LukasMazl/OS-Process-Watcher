@@ -13,7 +13,7 @@ public final class Logger {
         }
     }
 
-    public static void error(IOException ioException) {
+    public static void error(Exception ioException) {
         StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
         System.err.printf("[%s] - %s: %s\n", new Date(), stackTraceElements[2].toString(), ioException.getLocalizedMessage());
     }

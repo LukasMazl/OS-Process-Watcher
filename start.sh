@@ -1,7 +1,6 @@
 #!/bin/sh
 DIR=OS-Process-Watcher
 MVNW_FILE="mvnw"
-JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin/java
 
 if [ -d "$DIR" ]; then
     echo "Git already cloned"
@@ -19,4 +18,4 @@ fi
 
 clear
 
-"$JAVA_HOME" -jar ./target/OperationSystems-1.0-SNAPSHOT.jar -d -master -tasksFile,Socket,Memory
+java -jar ./target/OperationSystems-1.0-SNAPSHOT.jar -d -master -tasksFile,Socket,Memory

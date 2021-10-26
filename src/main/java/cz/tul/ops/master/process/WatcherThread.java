@@ -46,9 +46,9 @@ public class WatcherThread extends Thread {
     }
 
     private void unregisterProcess(TaskProcessWrapper taskProcessWrapper) {
+        taskProcessWrapper.getOnEnd().run();
         ProcessWatcher.unregisterWatchableProcess(taskProcessWrapper.getPid());
         Logger.info(String.format("Process with PID %d was killed.", taskProcessWrapper.getPid()));
-        taskProcessWrapper.getOnEnd().run();
     }
 
     private void printInputFromProcess(TaskProcessWrapper taskProcessWrapper) {

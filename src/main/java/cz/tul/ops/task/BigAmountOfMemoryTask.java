@@ -8,7 +8,7 @@ import java.util.*;
 
 public class BigAmountOfMemoryTask implements Task {
 
-    private static final long JVM_MEM_SIZE = 13 * 1024 * 1024;
+    private static final long JVM_MEM_SIZE = 300 * 1024 * 1024;
 
     private final List<Double> numbers = new ArrayList<>();
     private final long limitSize;

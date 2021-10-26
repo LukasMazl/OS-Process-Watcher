@@ -42,10 +42,8 @@ public class Application {
         delay(1000);
         Logger.print(LocalConst.PROGRAM_DESC);
         delay(1000);
-        System.out.println("\n");
 
         callNextTask();
-        Thread.currentThread().join();
     }
 
     private static void callNextTask() throws IOException, NoSuchFieldException, IllegalAccessException, InterruptedException {

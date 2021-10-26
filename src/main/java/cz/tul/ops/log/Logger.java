@@ -2,7 +2,6 @@ package cz.tul.ops.log;
 
 import cz.tul.ops.conf.ApplicationConfig;
 
-import java.io.IOException;
 import java.util.Date;
 
 import static cz.tul.ops.i18n.LocalService.getResourceBundle;
@@ -15,9 +14,9 @@ public final class Logger {
         }
     }
 
-    public static void error(Exception ioException) {
+    public static void error(Exception exception) {
         StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
-        System.err.printf("[%s] - %s: %s\n", new Date(), stackTraceElements[2].toString(), ioException.getLocalizedMessage());
+        System.err.printf("[%s] - %s: %s\n", new Date(), stackTraceElements[2].toString(), exception.getLocalizedMessage());
     }
 
     public static void processDebug(String msg, long pid) {

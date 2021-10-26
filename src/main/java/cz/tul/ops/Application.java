@@ -37,11 +37,8 @@ public class Application {
     public static void runMasterMode() throws Exception {
         Logger.debug("Master mode started!");
         Logger.print(LocalConst.WELCOME_MESSAGE);
-        delay(1000);
         Logger.print(LocalConst.WHAT_TO_DO);
-        delay(1000);
         Logger.print(LocalConst.PROGRAM_DESC);
-        delay(1000);
 
         callNextTask();
     }
@@ -55,18 +52,13 @@ public class Application {
         TaskType taskType = TASK_TYPE_LIST.get(killed_processed);
         processLauncher.launch(Arrays.asList(taskType), Application::onProcessEnd);
         Logger.print(taskType.getName());
-        delay(1000);
         Logger.print(taskType.getDesc());
-    }
-
-    public static void delay(long delay) throws InterruptedException {
-        Thread.sleep(delay);
     }
 
     public static void onProcessEnd() {
         killed_processed++;
-        Logger.print(LocalConst.PREFIX_PROCESS_KILLED_ + killed_processed);
         try {
+            Logger.print(LocalConst.PREFIX_PROCESS_KILLED_ + killed_processed);
             callNextTask();
         } catch (Exception e) {
             Logger.error(e);

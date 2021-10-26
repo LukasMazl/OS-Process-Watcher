@@ -32,9 +32,14 @@ public final class Logger {
         }
     }
 
-    public static void print(String key) {
+    public static void print(String key) throws InterruptedException {
         if(ApplicationConfig.isPrintForUser()) {
             System.out.println(getResourceBundle().getString(key));
+            delay(3500);
         }
+    }
+
+    private static void delay(long delay) throws InterruptedException {
+        Thread.sleep(delay);
     }
 }

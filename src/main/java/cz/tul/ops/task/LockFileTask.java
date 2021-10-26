@@ -6,6 +6,8 @@ import cz.tul.ops.log.Logger;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -44,12 +46,14 @@ public class LockFileTask implements Task {
                     if (!root.exists()) {
                         root.mkdirs();
                     }
-                    FileOutputStream fileOutputStream = new FileOutputStream(file);
-                    FileLock fileLock = fileOutputStream.getChannel().lock();
-                    writeStringToFile(fileOutputStream, "Guess who wrote this :)");
-                    fileOutputStreamList.add(fileOutputStream);
-                    fileLocks.add(fileLock);
                 }
+                FileChannel channel = new RandomAccessFile(file, "rw").getChannel();
+                FileOutputStream fileOutputStream = new FileOutputStream(file);
+                FileLock fileLock = channel.tryLock();
+                writeStringToFile(fileOutputStream, "Guess who wrote this :)");
+                fileOutputStreamList.add(fileOutputStream);
+                fileLocks.add(fileLock);
+
             } catch (IOException ioException) {
                 Logger.error(ioException);
             }
@@ -58,6 +62,7 @@ public class LockFileTask implements Task {
 
     private void writeStringToFile(FileOutputStream fileOutputStream, String s) throws IOException {
         fileOutputStream.write(s.getBytes(StandardCharsets.UTF_8));
+        fileOutputStream.flush();
     }
 
     @Override
@@ -70,13 +75,11 @@ public class LockFileTask implements Task {
         initFiles();
 
         while (true) {
+            // Doing something with file
             try {
-                for (FileOutputStream fileOutputStream : fileOutputStreamList) {
-                    writeStringToFile(fileOutputStream, "Tik tok");
-                }
-                Thread.currentThread().sleep(20);
-            } catch (InterruptedException | IOException e) {
-                e.printStackTrace();
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                Logger.error(e);
             }
         }
     }

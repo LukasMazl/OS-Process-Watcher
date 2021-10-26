@@ -45,6 +45,7 @@ public class Application {
         System.out.println("\n");
 
         callNextTask();
+        Thread.currentThread().join();
     }
 
     private static void callNextTask() throws IOException, NoSuchFieldException, IllegalAccessException, InterruptedException {
@@ -66,6 +67,7 @@ public class Application {
 
     public static void onProcessEnd() {
         killed_processed++;
+        Logger.print(LocalConst.PREFIX_PROCESS_KILLED_ + killed_processed);
         try {
             callNextTask();
         } catch (Exception e) {

@@ -27,8 +27,10 @@ public final class Logger {
     }
 
     public static void info(String msg) {
-        StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
-        System.out.printf("[%s] - %s: %s\n", new Date(), stackTraceElements[2].toString(), msg);
+        if(!ApplicationConfig.isPrintForUser()) {
+            StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
+            System.out.printf("[%s] - %s: %s\n", new Date(), stackTraceElements[2].toString(), msg);
+        }
     }
 
     public static void print(String key) {

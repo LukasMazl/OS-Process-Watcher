@@ -3,13 +3,13 @@ what.to.do=[System] Agente 69, Vaším úkolem je najít všechny viry a zneško
 program.desc=[System] Viry budete muset zabíjet postupně, ,,step by step". Vždy když proces(vir) zabijete, program to požná a budete moci pokračovat dále! 
 
 #virus description
-file.name=[System] Máme tady hlášení, že některý ze zákeřných virů manipuluje se souborm. 
+file.name=[System] Máme tady hlášení, že některý ze zákeřných virů manipuluje se souborem. 
 file.desc=[System] Je tu hláška, která říká, že jeden z virů se pokouší zamknout soubor ./lockedFiles/lock.txt. Okamžite ho najdetě a zneškodněte, agente! 
 memory.name=[System] Pozor pozor, lovec Bitcoinu na obzoru!
 memory.desc=[System] Někdo nám tady začal těžit bitcoin. Tento proces bude mít určitě velkou spotřebu CPU a paměti. 
 
 socket.name=[System] Oddělení správy soketu hlásí nával. 
-socket.desc=[System] Agente! Jeden ze zákeřných virů odeslal citlivá data o Vás do internetu. 
+socket.desc=[System] Agente! Jeden ze zákeřných virů odesílá citlivá data o Vás do internetu. 
 
 #succes killed
 process.kill.1=[Vir 1] Zabili Kennyho! Parchanti... \n[System] První zákeřný vir zničen. Blahopřeji! 

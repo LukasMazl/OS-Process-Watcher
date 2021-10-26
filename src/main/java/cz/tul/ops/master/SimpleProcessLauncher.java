@@ -21,7 +21,7 @@ public class SimpleProcessLauncher implements ProcessLauncher {
     }
 
     @Override
-    public long launch(List<TaskType> taskTypes) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public long launch(List<TaskType> taskTypes, Runnable onEnd) throws IOException, NoSuchFieldException, IllegalAccessException {
         if (currentProcess != null && currentProcess.isAlive()) {
             throw new IOException("Current process already running!");
         }
@@ -29,13 +29,13 @@ public class SimpleProcessLauncher implements ProcessLauncher {
         Logger.debug(String.format("Prepared command: %s", preparedCommand));
         currentProcess = Runtime.getRuntime().exec(preparedCommand);
         long pid = processResolver.getPID(currentProcess);
-        registerNewProcess(pid, currentProcess, taskTypes);
+        registerNewProcess(pid, currentProcess, taskTypes, onEnd);
         return pid;
     }
 
-    private void registerNewProcess(long pid, Process currentProcess, List<TaskType> taskTypes) {
+    private void registerNewProcess(long pid, Process currentProcess, List<TaskType> taskTypes, Runnable runnable) {
         Logger.debug(String.format("Registering new process with PID %d", pid));
-        ProcessWatcher.registerWatchableProcess(pid, currentProcess, taskTypes);
+        ProcessWatcher.registerWatchableProcess(pid, currentProcess, taskTypes, runnable);
         Logger.debug(String.format("Process with PID %d is registered", pid));
     }
 

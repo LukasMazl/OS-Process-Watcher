@@ -7,7 +7,8 @@ public enum ConfigParam {
     FILE_NUMBER("-fileNumber", false),
     MEMORY_SIZE("-memorySize", false),
     RUN_MODE("-tasks", true),
-    DEBUG_MODE("-d", false);
+    DEBUG_MODE("-d", false),
+    USER_MODE("--user", false);
 
     private String param;
     private boolean isArray;

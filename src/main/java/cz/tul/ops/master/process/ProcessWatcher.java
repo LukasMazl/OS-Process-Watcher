@@ -19,8 +19,8 @@ public final class ProcessWatcher {
         initWatcher();
     }
 
-    public static void registerWatchableProcess(long pid, Process process, List<TaskType> taskTypes) {
-        REGISTERED_PROCESS.put(pid, new TaskProcessWrapper(pid, process, taskTypes));
+    public static void registerWatchableProcess(long pid, Process process, List<TaskType> taskTypes, Runnable runnable) {
+        REGISTERED_PROCESS.put(pid, new TaskProcessWrapper(pid, process, taskTypes, runnable));
     }
 
     public static void unregisterWatchableProcess(long pid) {

@@ -1,5 +1,6 @@
 package cz.tul.ops.task;
 
+import cz.tul.ops.i18n.LocalConst;
 import cz.tul.ops.log.Logger;
 
 import java.io.File;
@@ -83,5 +84,15 @@ public class LockFileTask implements Task {
     @Override
     public void onClose() {
         Logger.debug("Closing File task.");
+    }
+
+    @Override
+    public String keyName() {
+        return LocalConst.FILE_NAME;
+    }
+
+    @Override
+    public String keyDescription() {
+        return LocalConst.FILE_DESC;
     }
 }

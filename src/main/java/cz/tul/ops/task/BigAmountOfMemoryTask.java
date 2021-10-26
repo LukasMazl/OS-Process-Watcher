@@ -1,5 +1,6 @@
 package cz.tul.ops.task;
 
+import cz.tul.ops.i18n.LocalConst;
 import cz.tul.ops.log.Logger;
 
 import java.util.*;
@@ -50,6 +51,16 @@ public class BigAmountOfMemoryTask implements Task {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public String keyName() {
+        return LocalConst.MEMORY_NAME;
+    }
+
+    @Override
+    public String keyDescription() {
+        return LocalConst.MEMORY_DESC;
     }
 
     @Override

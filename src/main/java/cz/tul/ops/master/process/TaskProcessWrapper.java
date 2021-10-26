@@ -8,11 +8,13 @@ public class TaskProcessWrapper {
     private long pid;
     private Process process;
     private List<TaskType> taskTypes;
+    private Runnable onEnd;
 
-    public TaskProcessWrapper(long pid, Process process, List<TaskType> taskTypes) {
+    public TaskProcessWrapper(long pid, Process process, List<TaskType> taskTypes, Runnable runnable) {
         this.pid = pid;
         this.process = process;
         this.taskTypes = taskTypes;
+        this.onEnd = runnable;
     }
 
     public long getPid() {
@@ -37,5 +39,13 @@ public class TaskProcessWrapper {
 
     public void setTaskTypes(List<TaskType> taskTypes) {
         this.taskTypes = taskTypes;
+    }
+
+    public Runnable getOnEnd() {
+        return onEnd;
+    }
+
+    public void setOnEnd(Runnable onEnd) {
+        this.onEnd = onEnd;
     }
 }

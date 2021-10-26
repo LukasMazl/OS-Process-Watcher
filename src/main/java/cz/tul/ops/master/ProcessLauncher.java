@@ -13,5 +13,5 @@ public interface ProcessLauncher {
      * @param taskTypes
      * @return Process ID
      */
-    long launch(List<TaskType> taskTypes) throws IOException, NoSuchFieldException, IllegalAccessException;
+    long launch(List<TaskType> taskTypes, Runnable onEnd) throws IOException, NoSuchFieldException, IllegalAccessException;
 }

@@ -1,6 +1,7 @@
 package cz.tul.ops.task;
 
 import cz.tul.ops.conf.ApplicationConfig;
+import cz.tul.ops.i18n.LocalConst;
 import cz.tul.ops.log.Logger;
 
 import java.io.IOException;
@@ -83,5 +84,15 @@ public class OpenSocketTask implements Task {
         for (ServerSocket serverSocket : serverSocketList) {
             serverSocket.close();
         }
+    }
+
+    @Override
+    public String keyName() {
+        return LocalConst.SOCKET_NAME;
+    }
+
+    @Override
+    public String keyDescription() {
+        return LocalConst.SOCKET_DESC;
     }
 }

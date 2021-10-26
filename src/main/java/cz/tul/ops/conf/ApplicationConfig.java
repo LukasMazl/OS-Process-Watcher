@@ -45,4 +45,8 @@ public class ApplicationConfig {
     public static int getPortCounter() {
         return 4000;
     }
+
+    public static boolean isPrintForUser() {
+        return configParamObjectMap.get(ConfigParam.USER_MODE) != null;
+    }
 }

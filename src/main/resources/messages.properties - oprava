@@ -1,0 +1,17 @@
+welcome.message=[System] Blahopřeji, úspěšně jste si nainstalovaly tři viry. Copak Vám tatínek neříkal, aby jste si nestahovaly neověřené programy?
+what.to.do=[System] Agente 69, Vaším úkolem je najít všechny viry a zneškodnit je. Máte povolení zabíjet!
+program.desc=[System] Viry budete muset zabíjet postupně, ,,step by step". Vždy když proces(vir) zabijete, program to požná a budete moci pokračovat dále! 
+
+#virus description
+file.name=[System] Máme tady hlášení, že některý ze zákeřných virů manipuluje se souborm. 
+file.desc=[System] Je tu hláška, která říká, že jeden z virů se pokouší zamknout soubor ./lockedFiles/lock.txt. Okamžite ho najdetě a zneškodněte, agente! 
+memory.name=[System] Pozor pozor, lovec Bitcoinu na obzoru!
+memory.desc=[System] Někdo nám tady začal těžit bitcoin. Tento proces bude mít určitě velkou spotřebu CPU a paměti. 
+
+socket.name=[System] Oddělení správy soketu hlásí nával. 
+socket.desc=[System] Agente! Jeden ze zákeřných virů odeslal citlivá data o Vás do internetu. 
+
+#succes killed
+process.kill.1=[Vir 1] Zabili Kennyho! Parchanti... \n[System] První zákeřný vir zničen. Blahopřeji! 
+process.kill.2=[Vir 2] Ale já to těžil jen kvůli teplu! Teď má sirota zemře zimou. \n[System] Druhý vir je usmrcen. 
+process.kill.3=[Vir 3] Ou no... \n[System] Situace zachráněna. Well done!!

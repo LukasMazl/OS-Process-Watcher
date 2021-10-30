@@ -8,7 +8,7 @@ import static cz.tul.ops.i18n.LocalService.getResourceBundle;
 
 public final class Logger {
     public static void debug(String msg) {
-        if(ApplicationConfig.isDebug() && !ApplicationConfig.isPrintForUser()) {
+        if(ApplicationConfig.isDebug()) {
             StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
             System.out.printf("[%s] - %s: %s\n", new Date(), stackTraceElements[2].toString(), msg);
         }

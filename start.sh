@@ -18,4 +18,4 @@ fi
 
 clear
 
-java -jar ./target/OperationSystems-1.0-SNAPSHOT.jar -d -master -tasksFile,Socket,Memory
+java -jar ./target/OperationSystems-1.0-SNAPSHOT.jar -master --user
